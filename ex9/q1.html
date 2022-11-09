@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +9,8 @@
         var app = angular.module('myapp', []);
         app.controller('mycontrol', function($scope){
             $scope.namepattern = /[a-zA-Z]/;
-            $scope.passpattern = /^[a-zA-Z0-9]{8, 10}$/;
+            $scope.passpattern = /^[a-zA-Z0-9)]{5,10}$/;
+
             $scope.mobpattern = /[0-9]{10}/;
             $scope.agepattern = /[0-9]{2}/;
         });
@@ -47,14 +50,13 @@
         
         State<span style="color: red;">*</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
         <select name="mystate" id="state">
-            <option value="maharashtra">Maharashtra</option>
             <option value="Tamilnadu">Tamilnadu</option>
+            <option value="maharashtra">Maharashtra</option>
             <option value="Gujurat">Gujurat</option>
             <option value="Kerala">Kerala</option>
         </select><br><br>
         
-        <button type="submit">submit</button>
+        <button ng-disabled="myform.myname.$invalid || myform.mypassword.$invalid || myform.myage.$invalid || myform.mymobilenum.$invalid  || myform.mymail.$invalid " ng-click="submit">submit</button>
     </form>
 </body>
 </html>
-
